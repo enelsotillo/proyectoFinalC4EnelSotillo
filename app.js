@@ -10,6 +10,9 @@ const host = 'localhost';
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+app.get('/user', (req, res) =>{
+    res.send('lista de usuarios');
+});
 
 app.listen(port, () => {
   console.log(`Servidor Express corriendo http://${host}:${port}`)
