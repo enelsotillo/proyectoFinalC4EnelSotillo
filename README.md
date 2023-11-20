@@ -21,12 +21,12 @@
         <h3>Pasos</h3>
             <ul>
             <li>1 git init</li>
-            <li>2 npm init -y</li>
-            <li>3 npm i express</li>
-            <li>4 npm i cors</li>
-            <li>5 npm i nodemon -D</li>
-            <li>6 npm i helmet</li>
-            <li>7 npm i morgan</li>
+            <li>2 git add .</li>
+            <li>3 git commit -m "inicio el proyecto"</li>
+            <li>4 git branch -M main</li>
+            <li>5 remote add origin https://github.com.git</li>
+            <li>6 git push -u origin main</li>
+            <li>7 git branch desarrollo</li>
             </ul>
         </section>
 
