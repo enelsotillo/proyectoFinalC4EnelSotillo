@@ -1,0 +1,12 @@
+### probar rutas del usuarios
+### optener usuario metodo get
+GET http://localhost:3000/usuarios
+
+### crear usuario metodo post
+POST http://localhost:3000/usuario
+
+### editar usuario metodo put
+PUT http://localhost:3000/usuario
+
+### eliminar usuario metodo delete
+DELETE http://localhost:3000/usuario

@@ -19,7 +19,7 @@ export const verTodosUsuarios = (req, res) =>{
 export const verUsuario = (req, res) =>{
    // return res.json('Ruta ver usuario')
    try {
-    return res.json({message: 'Ruta ver usuario'})
+    return res.json({message: 'ver usuario'})
    } catch (error) {
     console.error(error)
     return res.status(500).json({
@@ -32,7 +32,7 @@ export const verUsuario = (req, res) =>{
 export const createUsuario = (req, res) =>{
     // return listaUsuarios;
     try {
-        return res.json({message:'Ruta crear usuario'})
+        return res.json({message:' crear usuario'})
     } catch (error) {
         console.error(error)
         return res.status(500).json({
