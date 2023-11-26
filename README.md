@@ -11,9 +11,10 @@
             <li>3 npm i express</li>
             <li>4 npm i cors</li>
             <li>5 npm i nodemon -D</li>
-            <li>6 npm i helmet</li>
-            <li>7 npm i morgan</li>
-            <li>8 npm i dotenv</li>
+            <li>6 npm i jsonwebtoken</li>
+            <li>7 npm i helmet</li>
+            <li>8 npm i morgan</li>
+            <li>9 npm i dotenv</li>
             </ul>
         </section>
          <section>

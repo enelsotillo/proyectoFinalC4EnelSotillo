@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import { userRouters } from './routes/userRouters.js';
+import { autenticarRouters } from './routes/autenticarRouters.js';
 
 //constantes
 const app = express();
@@ -14,10 +15,12 @@ app.use(function(req, res, next){
 })
 
 /* archivos staticos*/
+app.use(express.json());
 app.use(express.static('my-app/public/css')) 
 
 /* Rutas */
-app.use(userRouters)
+app.use(userRouters);
+app.use(autenticarRouters);
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
