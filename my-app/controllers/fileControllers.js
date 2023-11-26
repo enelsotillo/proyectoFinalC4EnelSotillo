@@ -8,21 +8,19 @@ const __dirname = path.dirname(__filename);
 const rutaGuardarArchivoPrincipal = __dirname + '/../../tmp/';
 //funcion subir archivo 
 export const subirFile = (req, res) => {
-   console.log(rutaGuardarArchivoPrincipal);
-     
+   //console.log(rutaGuardarArchivoPrincipal);
     try {
         const archivo = req.files.miArchivo;
         const rutaGuadar = rutaGuardarArchivoPrincipal + archivo.name;
         return archivo.mv(rutaGuadar, function (err) {
             console.log(rutaGuardarArchivoPrincipal);
             if (err) {
-                return res.status(500).json({ err });
+                return res.status(500).json({error: err });
             }
             return res.json('Archivo enviado con exito');
         });
-
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({ error: error });
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({error: err });
     }
 }
