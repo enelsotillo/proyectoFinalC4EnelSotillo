@@ -21,3 +21,6 @@ Content-Type: application/json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA5MzY0NjZ9.89D8eWquqEzGcljwuW1pIedlL9H5sImLhAeWbV1uGjE"
 }
+
+### para probar ruta envio de Email
+POST http://localhost:3000/subirArchivo

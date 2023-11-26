@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { autenticacion, verificarToken } from "../controllers/autenticacionControllers.js";
 export const autenticarRouters = Router();
+import { autenticacion, verificarToken } from "../controllers/autenticacionControllers.js";
+
 //autenticar usuario
 autenticarRouters.post('/autenticar', autenticacion);
 //verificarAutenticacion del usuario
