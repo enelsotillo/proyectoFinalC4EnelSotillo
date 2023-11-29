@@ -24,3 +24,6 @@ Content-Type: application/json
 
 ### para probar ruta envio de Email
 POST http://localhost:3000/subirArchivo
+
+###optener datos con axios
+GET http://localhost:3000/optenerProvincias

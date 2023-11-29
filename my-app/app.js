@@ -4,6 +4,7 @@ import express from 'express';
 import { userRouters } from './routes/userRouters.js';
 import { autenticarRouters } from './routes/autenticarRouters.js';
 import { fileRouters } from './routes/fileRouters.js';
+import { geoRefRouters } from './routes/geoRefRauters.js';
 
 //constantes
 const app = express();
@@ -25,6 +26,7 @@ app.use(express.static('my-app/public/css'))
 app.use(userRouters);
 app.use(autenticarRouters);
 app.use(fileRouters);
+app.use(geoRefRouters);
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })

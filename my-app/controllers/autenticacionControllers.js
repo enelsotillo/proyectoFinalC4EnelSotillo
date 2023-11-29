@@ -24,7 +24,7 @@ export const registrar =(req, res) =>{
    // let token = jwt.sign({ id: 1 }, jwt_key);
 
 }
-
+//descodificar token
 export const verificarToken = (req, res) => {
     const token = req.body.token;
     try {    
