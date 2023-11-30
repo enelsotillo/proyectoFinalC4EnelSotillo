@@ -10,18 +10,32 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-export const enviarEmail = (req, res) => {
-    const url= http://www.jetmore.org/john/code/swaks/files/swaks-20130209.0/swaks;
+export const enviarEmail = async (req, res) => {
     try {
-    swaks: auth, 
-	server: smtp.mailgun.org,
-	au: postmaster@YOUR_DOMAIN_NAME ,
-	ap: 3kh9umujora5, 
-	to: bar@example.com, 
-	h-Subject: "Hello", 
-	body: 'Testing some Mailgun awesomness!'
+        // Obtener la información del correo electrónico del objeto `req`
+        const from = '"EnelSotillo"<enelsotillo@gmail.com>';
+        const to = "enelsotillo@gmail.com";
+        const subject = "Bienvenido";
+        const text = "Bienvenido administrator de correo";
+        const html = "Bienvenido al correo";
+
+        // Enviar el correo electrónico
+        const info = await transporter.sendMail({
+            from: from,
+            to: to,
+            subject: subject,
+            text: text,
+            html: html,
+        });
+         // Registrar el ID del mensaje
+    console.log(info);
     } catch (error) {
-        console.log('error: ' + error);
-        return res.status(500).json({ error: error });
+        console.log(error);
+        res.json({ mensage: error });
     }
-}
+
+   
+
+    // Devolver una respuesta JSON
+    return res.json({ mensaje: "ingreso al correo" });
+};
