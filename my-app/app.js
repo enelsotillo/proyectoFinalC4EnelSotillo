@@ -6,6 +6,7 @@ import { autenticarRouters } from './routes/autenticarRouters.js';
 import { fileRouters } from './routes/fileRouters.js';
 import { geoRefRouters } from './routes/geoRefRauters.js';
 import { emailRouters } from './routes/emailRauters.js';
+import { conexionMongoose } from './config/mongooseConfi.js';
 
 //constantes
 const app = express();
@@ -34,5 +35,6 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
+  conexionMongoose();
   console.log(`Servidor Express corriendo http://${host}:${port}`)
 })
