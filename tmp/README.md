@@ -16,8 +16,6 @@
             <li>08 npm i morgan</li>
             <li>09 npm i dotenv</li>
             <li>10 npm i express-fileupload</li>
-            <li>11 npm i npm i axios</li>
-            <li>12 npm i mongoose </li>
             </ul>
         </section>
          <section>

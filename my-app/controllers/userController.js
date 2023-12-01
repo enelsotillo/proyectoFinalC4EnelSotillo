@@ -19,7 +19,7 @@ export const verTodosUsuarios = (req, res) =>{
 export const verUsuario = (req, res) =>{
    // return res.json('Ruta ver usuario')
    try {
-    return res.json({message: 'ver usuario'})
+    return res.json({message: 'Ruta ver usuario'})
    } catch (error) {
     console.error(error)
     return res.status(500).json({

@@ -1,6 +1,6 @@
 ### probar rutas del usuarios
 ### optener usuario metodo get
-GET http://localhost:3000/usuarios
+GET http://localhost:3000/usuario
 
 ### crear usuario metodo post
 POST http://localhost:3000/usuario
@@ -10,3 +10,23 @@ PUT http://localhost:3000/usuario
 
 ### eliminar usuario metodo delete
 DELETE http://localhost:3000/usuario
+
+###autenticar probar ruta
+POST http://localhost:3000/autenticar
+
+### verificarToken probar ruta
+POST http://localhost:3000/verificarToken
+
+Content-Type: application/json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA5MzY0NjZ9.89D8eWquqEzGcljwuW1pIedlL9H5sImLhAeWbV1uGjE"
+}
+
+### para probar ruta envio de Email
+POST http://localhost:3000/subirArchivo
+
+###optener datos con axios consumo de api
+GET http://localhost:3000/optenerProvincias
+
+###envio de email
+POST http://localhost:3000/enviarEmail
