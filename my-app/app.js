@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import fileUpload from 'express-fileupload';
 import express from 'express';
+import cors from "cors";
 import { userRouters } from './routes/userRouters.js';
 import { autenticarRouters } from './routes/autenticarRouters.js';
 import { fileRouters } from './routes/fileRouters.js';
@@ -21,6 +22,7 @@ app.use(function(req, res, next){
 */
 app.use(fileUpload());
 app.use(express.json());
+app.use(cors());
 /* archivos staticos*/
 app.use(express.static('my-app/public/css')) 
 
