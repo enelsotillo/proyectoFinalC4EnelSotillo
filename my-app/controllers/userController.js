@@ -1,13 +1,10 @@
+import { usersModel } from "../model/userModel.js";
 
-const listaUsuarios = [
-    { nombre: "Juan" },
-    { nombre: "Jose" }
-]
-
-// ver usuarios
-export const verTodosUsuarios = (req, res) => {
+// ver todos usuarios
+export const verTodosUsuarios = async (req, res) => {
     try {
-        return res.json(listaUsuarios);
+        const usuarios = await usersModel.find();
+        return res.json(usuarios);
     } catch (error) {
         console.error(error)
         return res.status(500).json({
@@ -15,24 +12,31 @@ export const verTodosUsuarios = (req, res) => {
         });
     }
 }
-//ver usuario
-export const verUsuario = (req, res) => {
+//ver solo un usuario
+export const verUsuario = async (req, res) => {
     // return res.json('Ruta ver usuario')
     try {
-        return res.json({ message: 'Ruta ver usuario' })
+        const { id } = req.params;
+        const usuarioEncontrado = await usersModel.findById(id);
+        return res.json(usuarioEncontrado);
     } catch (error) {
         console.error(error)
         return res.status(500).json({
-            message: 'error del servidor'
+            message: 'error interno del servidor al crear usuario'
         });
     }
 }
-
 //crear usuario
-export const createUsuario = (req, res) => {
-    // return listaUsuarios;
+export const createUsuario = async (req, res) => {
     try {
-        return res.json({ message: ' crear usuario' })
+        const { usuario, nombre, apellido } = req.body;
+        const newUsers = new usersModel({
+            usuario: usuario,
+            nombre: nombre,
+            apellido: apellido
+        })
+        await newUsers.save();
+        return res.json({ message: 'usuario creado con exito' });
     } catch (error) {
         console.error(error)
         return res.status(500).json({
@@ -41,26 +45,32 @@ export const createUsuario = (req, res) => {
     }
 }
 //editar usuario
-export const editUsuario = (req, res) => {
-    //return listaUsuarios;
+export const editUsuario = async (req, res) => {
     try {
-        return res.json({ message: 'Ruta editar usuario' })
+        const { id, usuario, nombre, apellido } = req.body;
+        
+        await usersModel.findByIdAndUpdate( id, {
+            usuario: usuario, nombre: nombre, apellido: apellido
+        });
+        return res.json({ message: 'usuario modificado con exito' });
     } catch (error) {
-        console.error(error)
+        console.error(error);
         return res.status(500).json({
-            message: 'error del servidor'
+            message: 'error interno del servidor al intentar modificar el usuario'
         });
     }
 }
 //eliminar usuario
-export const deleteUsuario = (req, res) => {
-    // return listaUsuarios;
+export const deleteUsuario = async (req, res) => {
     try {
-        return res.json({ message: 'Ruta Eliminar usuario' })
+        const { id } = req.body;
+        
+        await usersModel.findByIdAndDelete(id);
+        return res.json({ message: 'usuario Eliminado con exito' });
     } catch (error) {
-        console.error(error)
+        console.error(error);
         return res.status(500).json({
-            message: 'error del servidor'
+            message: 'error interno del servidor al intentar eliminar usuario'
         });
     }
 }

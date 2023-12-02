@@ -1,7 +1,7 @@
 
 import mongoose from "mongoose";
 /*
-Estoy teniendo problemas mis variables de entorno
+Estoy teniendo problemas para mis variables de entorno consultar luego
 */
 const mongooseURI = process.env.MONGOSE_DB_IRU;
 

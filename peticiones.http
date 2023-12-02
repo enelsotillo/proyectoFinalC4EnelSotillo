@@ -1,15 +1,43 @@
 ### probar rutas del usuarios
-### optener usuario metodo get
-GET http://localhost:3000/usuario
+### optener usuario metodo get todos los usuarios
+GET http://localhost:3000/usuarios
+
+### metodo get solo un usuario
+GET http://localhost:3000/usuario/656b9b3e5760c8b1a478d9f7
+Content-Type: application/json
+
+    {
+        "id": "656b9b3e5760c8b1a478d9f7"
+    }
 
 ### crear usuario metodo post
 POST http://localhost:3000/usuario
+Content-Type: application/json
+
+    {
+        "usuario": "adminPrueba",
+        "nombre": "francia",
+        "apellido": "tumber"
+    }
 
 ### editar usuario metodo put
 PUT http://localhost:3000/usuario
+Content-Type: application/json
+
+    {
+        "id": "656ba0862c638e52776c1216",
+        "usuario": "administrador",
+        "nombre": "camilo jose",
+        "apellido": "sanchez rodriguez"
+    }
 
 ### eliminar usuario metodo delete
 DELETE http://localhost:3000/usuario
+Content-Type: application/json
+
+    {
+        "id": "656ba8d934f52294de4a61b9"
+    }
 
 ###autenticar probar ruta
 POST http://localhost:3000/autenticar

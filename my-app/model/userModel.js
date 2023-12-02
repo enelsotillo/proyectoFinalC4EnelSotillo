@@ -6,4 +6,5 @@ const usersSchema = new mongoose.Schema({
   apellido: String
 });
 
+//export el model table con name usuarios
 export const usersModel = mongoose.model('usuarios', usersSchema);
