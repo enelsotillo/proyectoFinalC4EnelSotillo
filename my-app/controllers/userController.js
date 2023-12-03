@@ -29,9 +29,10 @@ export const verUsuario = async (req, res) => {
 //crear usuario
 export const createUsuario = async (req, res) => {
     try {
-        const { usuario, nombre, apellido } = req.body;
+        const { usuario, password, nombre, apellido } = req.body;
         const newUsers = new usersModel({
             usuario: usuario,
+            password: password,
             nombre: nombre,
             apellido: apellido
         })
@@ -47,10 +48,10 @@ export const createUsuario = async (req, res) => {
 //editar usuario
 export const editUsuario = async (req, res) => {
     try {
-        const { id, usuario, nombre, apellido } = req.body;
+        const { id, usuario, password, nombre, apellido } = req.body;
         
         await usersModel.findByIdAndUpdate( id, {
-            usuario: usuario, nombre: nombre, apellido: apellido
+            usuario: usuario, password: password, nombre: nombre, apellido: apellido
         });
         return res.json({ message: 'usuario modificado con exito' });
     } catch (error) {
