@@ -8,6 +8,8 @@ import { fileRouters } from './routes/fileRouters.js';
 import { geoRefRouters } from './routes/geoRefRauters.js';
 import { emailRouters } from './routes/emailRauters.js';
 import { conexionMongoose } from './config/mongooseConfi.js';
+import { postRouters } from './routes/postRauters.js';
+import { comentRouters } from './routes/comentRouters.js';
 
 //constantes
 const app = express();
@@ -31,7 +33,9 @@ app.use(userRouters);
 app.use(autenticarRouters);
 app.use(fileRouters);
 app.use(geoRefRouters);
-app.use(emailRouters)
+app.use(emailRouters);
+app.use(postRouters);
+app.use(comentRouters);
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
