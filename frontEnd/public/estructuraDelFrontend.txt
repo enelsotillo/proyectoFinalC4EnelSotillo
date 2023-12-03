@@ -18,6 +18,3 @@ styles: Esta carpeta contiene los estilos de la aplicación.
 main.jsx: Este es el archivo principal de la aplicación, se encarga de cargar los componentes y las dependencias de la aplicación. 
 
 app.jsx: Este archivo es el componente principal de la aplicación, se encarga de renderizar la estructura básica.
-
-
-
