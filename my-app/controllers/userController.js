@@ -22,7 +22,7 @@ export const verUsuario = async (req, res) => {
     } catch (error) {
         console.error(error)
         return res.status(500).json({
-            message: 'error interno del servidor al crear usuario'
+            message: 'error interno del servidor al buscar usuario'
         });
     }
 }
@@ -49,7 +49,7 @@ export const createUsuario = async (req, res) => {
 export const editUsuario = async (req, res) => {
     try {
         const { id, usuario, password, nombre, apellido } = req.body;
-        
+        // faltaria una validacion
         await usersModel.findByIdAndUpdate( id, {
             usuario: usuario, password: password, nombre: nombre, apellido: apellido
         });
@@ -57,15 +57,16 @@ export const editUsuario = async (req, res) => {
     } catch (error) {
         console.error(error);
         return res.status(500).json({
-            message: 'error interno del servidor al intentar modificar el usuario'
+            message: 'error interno del servidor al intentar modificar el usuario no encontrado'
         });
     }
 }
 //eliminar usuario
 export const deleteUsuario = async (req, res) => {
+    
     try {
         const { id } = req.body;
-        
+        console.log(req.body);
         await usersModel.findByIdAndDelete(id);
         return res.json({ message: 'usuario Eliminado con exito' });
     } catch (error) {

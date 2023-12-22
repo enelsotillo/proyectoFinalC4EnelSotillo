@@ -3,11 +3,11 @@
 GET http://localhost:3000/usuarios
 
 ### metodo get solo un usuario
-GET http://localhost:3000/usuario/656b9b3e5760c8b1a478d9f7
+GET http://localhost:3000/usuario/656ba0862c638e52776c1216
 Content-Type: application/json
 
     {
-        "id": "656b9b3e5760c8b1a478d9f7"
+        "id": "656ba0862c638e52776c1216"
     }
 
 ### crear usuario metodo post
@@ -27,8 +27,8 @@ Content-Type: application/json
     {
         "id": "656ba0862c638e52776c1216",
         "usuario": "administrador",
-        "nombre": "camilo jose",
-        "apellido": "sanchez rodriguez"
+        "nombre": "camilo J",
+        "apellido": "sanchez R"
     }
 
 ### eliminar usuario metodo delete

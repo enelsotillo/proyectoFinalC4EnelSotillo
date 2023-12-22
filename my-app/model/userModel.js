@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const usersSchema = new mongoose.Schema({
-  usuario: String,
-  password: String,
-  nombre: String,
-  apellido: String
+  usuario: { type: String, required: true },
+  nombre: { type: String, required: true },
+  apellido: { type: String, required: true },
+  password: { type: String, required: true },
 });
 
 //export el model table con name usuarios
