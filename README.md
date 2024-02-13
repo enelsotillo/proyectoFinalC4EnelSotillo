@@ -18,6 +18,7 @@
             <li>10 npm i express-fileupload</li>
             <li>11 npm i npm i axios</li>
             <li>12 npm i mongoose </li>
+            <li>13 npm i nodemailer </li>
             </ul>
         </section>
          <section>

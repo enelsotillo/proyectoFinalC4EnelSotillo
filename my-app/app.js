@@ -1,12 +1,15 @@
 import 'dotenv/config';
 import fileUpload from 'express-fileupload';
 import express from 'express';
+import cors from "cors";
 import { userRouters } from './routes/userRouters.js';
 import { autenticarRouters } from './routes/autenticarRouters.js';
 import { fileRouters } from './routes/fileRouters.js';
 import { geoRefRouters } from './routes/geoRefRauters.js';
 import { emailRouters } from './routes/emailRauters.js';
 import { conexionMongoose } from './config/mongooseConfi.js';
+import { postRouters } from './routes/postRauters.js';
+import { comentRouters } from './routes/comentRouters.js';
 
 //constantes
 const app = express();
@@ -21,6 +24,7 @@ app.use(function(req, res, next){
 */
 app.use(fileUpload());
 app.use(express.json());
+app.use(cors());
 /* archivos staticos*/
 app.use(express.static('my-app/public/css')) 
 
@@ -29,7 +33,9 @@ app.use(userRouters);
 app.use(autenticarRouters);
 app.use(fileRouters);
 app.use(geoRefRouters);
-app.use(emailRouters)
+app.use(emailRouters);
+app.use(postRouters);
+app.use(comentRouters);
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })

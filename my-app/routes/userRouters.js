@@ -6,7 +6,7 @@ export const userRouters = Router();
 // ver usuarios
 userRouters.get('/usuarios', verTodosUsuarios)
 //ver usuario
-userRouters.get('/usuario', verUsuario)
+userRouters.get('/usuario/:id', verUsuario)
 //crear usuario
 userRouters.post('/usuario', createUsuario)
 //editar usuario

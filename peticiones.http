@@ -1,15 +1,43 @@
 ### probar rutas del usuarios
-### optener usuario metodo get
-GET http://localhost:3000/usuario
+### optener usuario metodo get todos los usuarios
+GET http://localhost:3000/usuarios
+
+### metodo get solo un usuario
+GET http://localhost:3000/usuario/656ba0862c638e52776c1216
+Content-Type: application/json
+
+    {
+        "id": "656ba0862c638e52776c1216"
+    }
 
 ### crear usuario metodo post
 POST http://localhost:3000/usuario
+Content-Type: application/json
+
+    {
+        "usuario": "adminPrueba",
+        "nombre": "francia",
+        "apellido": "tumber"
+    }
 
 ### editar usuario metodo put
 PUT http://localhost:3000/usuario
+Content-Type: application/json
+
+    {
+        "id": "656ba0862c638e52776c1216",
+        "usuario": "administrador",
+        "nombre": "camilo J",
+        "apellido": "sanchez R"
+    }
 
 ### eliminar usuario metodo delete
 DELETE http://localhost:3000/usuario
+Content-Type: application/json
+
+    {
+        "id": "656ba8d934f52294de4a61b9"
+    }
 
 ###autenticar probar ruta
 POST http://localhost:3000/autenticar
@@ -30,3 +58,84 @@ GET http://localhost:3000/optenerProvincias
 
 ###envio de email
 POST http://localhost:3000/enviarEmail
+
+
+###Peticiones para los post
+### ver todos los posts metodo get
+GET http://localhost:3000/posts
+
+### ver solo un post metodo get
+GET http://localhost:3000/post/656b9b3e5760c8b1a478d9f7
+Content-Type: application/json
+
+    {
+        "id": "656b9b3e5760c8b1a478d9f7"
+    }
+
+### crear  metodo post
+POST http://localhost:3000/post
+Content-Type: application/json
+
+    {
+        "titulo": "misiones",
+        "descrpcion": "laguna y montaña bioquin",
+        "postFotoURL": "https://www.nexofin.com/archivos/2015/02/0012165557.jpgtumber",
+        
+    }
+
+### editar post metodo put
+PUT http://localhost:3000/post
+Content-Type: application/json
+
+    {
+        "id": "656ba0862c638e52776c1216",
+        "usuario": "administrador",
+        "nombre": "camilo jose",
+        "apellido": "sanchez rodriguez"
+    }
+
+### eliminar post metodo delete
+DELETE http://localhost:3000/post
+Content-Type: application/json
+
+    {
+        "id": "656ba8d934f52294de4a61b9"
+    }
+
+
+###Peticiones para los coments
+### ver todos los coments metodo get
+GET http://localhost:3000/coments/65b955447514cf14971753ad
+
+### ver solo un coment metodo get
+GET http://localhost:3000/coment/65b8043b0f241a9e6664be01
+Content-Type: application/json
+
+    {
+        "id": "65b8043b0f241a9e6664be01"
+    }
+
+### crear coment metodo post
+POST http://localhost:3000/coment
+Content-Type: application/json
+
+    {
+        "comentario": "hola fue el viaje, el mejor de mi vida"
+    }
+
+### editar coment metodo put
+PUT http://localhost:3000/coment
+Content-Type: application/json
+
+    {
+        "id": "65b9557a7514cf14971753b7",
+        "comentario": "ahora todo es nuevo"
+    }
+
+### eliminar coment metodo delete
+DELETE http://localhost:3000/coment
+Content-Type: application/json
+
+    {
+        "id": "656ba8d934f52294de4a61b9"
+    }
