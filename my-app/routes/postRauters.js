@@ -3,13 +3,13 @@ import { verTodosPosts, verPost, createPost, editPost, deletePost } from "../con
 export const postRouters = Router();
 //const { userRouters } = require('express').Router();
 
-// ver usuarios
+// ver todos los post
 postRouters.get('/posts', verTodosPosts)
-//ver usuario
+//ver solo un post
 postRouters.get('/post/:id', verPost)
-//crear usuario
+//crear post
 postRouters.post('/post', createPost)
-//editar usuario
+//editar post
 postRouters.put('/post', editPost)
-//eliminar usuario
+//eliminar post
 postRouters.delete('/post', deletePost)

@@ -79,7 +79,8 @@ Content-Type: application/json
     {
         "titulo": "misiones",
         "descrpcion": "laguna y montaña bioquin",
-        "postFotoURL": "https://www.nexofin.com/archivos/2015/02/0012165557.jpgtumber"
+        "postFotoURL": "https://www.nexofin.com/archivos/2015/02/0012165557.jpgtumber",
+        
     }
 
 ### editar post metodo put
@@ -104,14 +105,14 @@ Content-Type: application/json
 
 ###Peticiones para los coments
 ### ver todos los coments metodo get
-GET http://localhost:3000/coments
+GET http://localhost:3000/coments/65b955447514cf14971753ad
 
 ### ver solo un coment metodo get
-GET http://localhost:3000/post/656b9b3e5760c8b1a478d9f7
+GET http://localhost:3000/coment/65b8043b0f241a9e6664be01
 Content-Type: application/json
 
     {
-        "id": "656b9b3e5760c8b1a478d9f7"
+        "id": "65b8043b0f241a9e6664be01"
     }
 
 ### crear coment metodo post
@@ -127,10 +128,8 @@ PUT http://localhost:3000/coment
 Content-Type: application/json
 
     {
-        "id": "656ba0862c638e52776c1216",
-        "usuario": "administrador",
-        "nombre": "camilo jose",
-        "apellido": "sanchez rodriguez"
+        "id": "65b9557a7514cf14971753b7",
+        "comentario": "ahora todo es nuevo"
     }
 
 ### eliminar coment metodo delete

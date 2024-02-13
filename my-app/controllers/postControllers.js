@@ -1,18 +1,21 @@
+import { comentsModel } from "../model/comentsModel.js";
 import { postsModel } from "../model/postModel.js";
+import { verificarToken } from "../utils/token.js";
 
-// ver todos usuarios
+
+// ver todos los posts
 export const verTodosPosts = async (req, res) => {
     try {
-        const posts = await postsModel.find();
+        const posts = await postsModel.find().populate('autor');
         return res.json(posts);
     } catch (error) {
         console.error(error)
         return res.status(500).json({
-            message: 'error del servidor'
+            message: 'error del servidor al cargar lista de publicaciones'
         });
     }
 }
-//ver solo un usuario
+//ver solo un post
 export const verPost = async (req, res) => {
     // return res.json('Ruta ver usuario')
     try {
@@ -22,34 +25,75 @@ export const verPost = async (req, res) => {
     } catch (error) {
         console.error(error)
         return res.status(500).json({
-            message: 'error interno del servidor al crear nuevo post'
+            message: 'error interno del servidor obtener publicacion'
         });
     }
 }
-//crear usuario
+//crear post
 export const createPost = async (req, res) => {
     try {
-        const { titulo, descripcion, postFotoURL  } = req.body;
+        const { titulo, descripcion, postFotoURL } = req.body;
+        
+        const { token } = req.headers;
+        console.log(token)
+        const tokenValido = verificarToken(token);
+
+        console.log(tokenValido);
+        if (!tokenValido) {
+        return res.status(500).json({
+            message: 'El token no es valido',
+        });
+        }
+
+
+        const autor = tokenValido.id;
+
         const newPost = new postsModel({
             titulo: titulo,
             descripcion: descripcion,
-            postFotoURL: postFotoURL
+            postFotoURL: postFotoURL,
+            autor: autor,
         })
         await newPost.save();
+
         return res.json({ message: 'post creado con exito' });
     } catch (error) {
         console.error(error)
         return res.status(500).json({
-            message: 'error del servidor'
+            message: 'error interno del servidor al intentar crear publicacion',
+            error: error,
         });
     }
 }
-//editar usuario
+//editar post
 export const editPost = async (req, res) => {
     try {
         const { id, titulo, descripcion, postFotoURL } = req.body;
-        
-        await postsModel.findByIdAndUpdate( id, {
+
+        //validar el autor .....
+        const { token } = req.headers;
+        console.log(token)
+        const tokenValido = verificarToken(token);
+
+       // console.log(tokenValido);
+        if (!tokenValido) {
+        return res.status(500).json({
+            message: 'El token no es valido',
+        });
+        }
+
+
+        const autorId = tokenValido.id;
+        //
+        const post = await postsModel.findById(id);
+
+        if(post.autor.toString() !== autorId){
+            return res.status(500).json({
+                message: 'El autor no es valido',
+            });
+        }
+
+        await postsModel.findByIdAndUpdate(id, {
             titulo: titulo, descripcion: descripcion, postFotoURL: postFotoURL
         });
         return res.json({ message: 'post modificado con exito' });
@@ -60,13 +104,15 @@ export const editPost = async (req, res) => {
         });
     }
 }
-//eliminar usuario
+//eliminar post
 export const deletePost = async (req, res) => {
     try {
         const { id } = req.body;
-        
+        //elimina el post
         await postsModel.findByIdAndDelete(id);
-        return res.json({ message: 'post Eliminado con exito' });
+
+        await comentsModel.deleteMany({ post_id: id });;
+        return res.json({ message: 'post y comentarios, Eliminado con exito' });
     } catch (error) {
         console.error(error);
         return res.status(500).json({
