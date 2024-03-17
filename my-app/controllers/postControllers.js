@@ -108,10 +108,15 @@ export const editPost = async (req, res) => {
 export const deletePost = async (req, res) => {
     try {
         const { id } = req.body;
-        //elimina el post
+        //eliminar el post
         await postsModel.findByIdAndDelete(id);
-
-        await comentsModel.deleteMany({ post_id: id });;
+        // Comprobar si se encontró el post antes de eliminar los comentarios
+        if (!deletePost) {
+            return res.status(404).json({ mensaje: 'Post no encontrado' });
+        }
+        //eliminar el comentario
+        //await comentsModel.deleteMany({ postrs: id });
+        await comentsModel.deleteMany({postrs:id});
         return res.json({ message: 'post y comentarios, Eliminado con exito' });
     } catch (error) {
         console.error(error);

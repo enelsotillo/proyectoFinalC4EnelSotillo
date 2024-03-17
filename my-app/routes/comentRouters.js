@@ -4,13 +4,13 @@ export const comentRouters = Router();
 
 //const { userRouters } = require('express').Router();
 
-// ver usuarios
+// ver todos los comentarios 
 comentRouters.get('/coments/:idPosts', verTodosLosComents);
-//ver usuario
+//ver comentario
 comentRouters.get('/coment/:id', verComents);
-//crear usuario
+//crear comentario
 comentRouters.post('/coment', createComents);
-//editar usuario
+//editar comentario
 comentRouters.put('/coment', editComents);
-//eliminar usuario
+//eliminar comentario
 comentRouters.delete('/coment', deleteComents);
